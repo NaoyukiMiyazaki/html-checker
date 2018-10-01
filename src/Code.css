@@ -4,16 +4,27 @@
   font-family: monospace;
   height: 50vh;
   overflow: auto;
+  margin: 1em;
+  border: 1px solid #ddd;
+  resize: vertical;
 }
 
 .code__container {
   display: grid;
-  grid-template-columns: 2em 1fr;
-  grid-gap: 5px;
+  grid-template-columns: auto 1fr;
 }
 
 .code__lines {
   text-align: right;
+}
+
+.code__lines a {
+  color: #aaa;
+  padding: 0 10px;
+}
+
+.code__lines *:target {
+  background: yellow;
 }
 
 .code__code {

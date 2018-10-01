@@ -39,7 +39,7 @@ class Code extends Component {
         <div className="code__container">
           <div className="code__lines">
           {lines.map((val, i) => (
-            <div key={i}>{i + 1}</div>
+            <div id={`L${i + 1}`} key={i}><a href={`#L${i + 1}`}>{i + 1}</a></div>
           ))}
           </div>
           <pre className="code__code">

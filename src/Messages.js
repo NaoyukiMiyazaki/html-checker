@@ -3,7 +3,7 @@ import React from 'react'
 import './Messages.css'
 
 const Message = ({ message }) => (
-  <li className={message.type}>{message.type}: {message.evidence}</li>
+  <li className={message.type}>{message.type}: <a href={`#L${message.line}`}>line:{message.line}</a> {message.message}</li>
 )
 
 const Messages = ({ messages }) => {
