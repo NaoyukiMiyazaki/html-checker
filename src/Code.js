@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import hljs from 'highlightjs'
 
 import './Code.css'
-import 'highlightjs/styles/default.css'
 
 class Code extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      lines: [],
       highlight: {},
     }
   }
@@ -25,18 +25,28 @@ class Code extends Component {
   }
 
   highlight() {
+    const lines = this.props.html.trim().split('\n');
     this.setState({
+      lines,
       highlight: hljs.highlight('html', this.props.html)
     })
   }
 
   render() {
-    const { highlight } = this.state
-
+    const { lines, highlight } = this.state
     return (
-      <pre className="code">
-        <code className="code__inner html" dangerouslySetInnerHTML={{__html: highlight.value}} />
-      </pre>
+      <div className="code">
+        <div className="code__container">
+          <div className="code__lines">
+          {lines.map((val, i) => (
+            <div key={i}>{i + 1}</div>
+          ))}
+          </div>
+          <pre className="code__code">
+            <code className="code__inner html" dangerouslySetInnerHTML={{__html: highlight.value}} />
+          </pre>
+        </div>
+      </div>
     )
   }
 }

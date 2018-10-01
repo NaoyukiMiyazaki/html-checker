@@ -1,4 +1,21 @@
+@import "~highlightjs/styles/default.css";
+
 .code {
-  height: 30vh;
+  font-family: monospace;
+  height: 50vh;
   overflow: auto;
+}
+
+.code__container {
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  grid-gap: 5px;
+}
+
+.code__lines {
+  text-align: right;
+}
+
+.code__code {
+  margin: 0;
 }
